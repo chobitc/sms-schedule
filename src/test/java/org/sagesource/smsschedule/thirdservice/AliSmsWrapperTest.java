@@ -1,7 +1,18 @@
 package org.sagesource.smsschedule.thirdservice;
 
+import com.alibaba.fastjson.JSON;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.sagesource.smsschedule.SmsScheduleApplication;
+import org.sagesource.smsschedule.thirdservice.sms.AliSmsWrapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import sun.misc.BASE64Encoder;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * <p>阿里短信服务测试</p>
@@ -11,7 +22,36 @@ import sun.misc.BASE64Encoder;
  *     email       job.xueqi@gmail.com
  * </pre>
  */
+@RunWith(SpringJUnit4ClassRunner.class)
+@SpringBootTest(classes = SmsScheduleApplication.class)// 指定spring-boot的启动类
 public class AliSmsWrapperTest {
+
+	@Value("${api.alibaba.accessKeyId}")
+	private String accessKeyId;
+	@Value("${api.alibaba.accessSecret}")
+	private String accessSecret;
+
+	@Autowired
+	private AliSmsWrapper aliSmsWrapper;
+
+	@Test
+	public void sendTest() throws Exception {
+		AliSmsWrapper.SendConfig sendConfig = new AliSmsWrapper.SendConfig();
+		sendConfig.setAccessKeyId(accessKeyId);
+		sendConfig.setAccessSecret(accessSecret);
+		sendConfig.setPhoneNumber("15900264873");
+		sendConfig.setSignName("7妹每日温馨");
+		sendConfig.setTemplateCode("SMS_100270018");
+
+		Map<String, String> paras = new HashMap<>();
+		paras.put("name","小宝~");
+		paras.put("city","上海");
+		paras.put("weather","晴天");
+		paras.put("days","120");
+		sendConfig.setTemplateParam(JSON.toJSONString(paras));
+
+		aliSmsWrapper.send(sendConfig);
+	}
 
 	/**
 	 * 签名测试
