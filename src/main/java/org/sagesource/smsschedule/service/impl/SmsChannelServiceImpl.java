@@ -25,7 +25,7 @@ public class SmsChannelServiceImpl implements SmsChannelService {
 	private static final Logger LOGGER = LoggerFactory.getLogger(SmsChannelServiceImpl.class);
 
 	@Autowired
-	private RedisTemplate<String, Object> redisTemplate;
+	private RedisTemplate<String, String> redisTemplate;
 
 	@Override
 	public boolean saveChannel(SmsChannelInfoEntity smsChannelInfo) {
@@ -35,7 +35,8 @@ public class SmsChannelServiceImpl implements SmsChannelService {
 				smsChannelInfo.setCreateTime(date);
 				smsChannelInfo.setUpdateTime(date);
 			}
-			Boolean result = redisTemplate.opsForHash().putIfAbsent(CacheKey.KEY_SMS_CHANNEL_LIST, smsChannelInfo.getSmsName(), smsChannelInfo);
+			Boolean result = redisTemplate.opsForHash().putIfAbsent(CacheKey.SMS_CHANNEL_LIST,
+					smsChannelInfo.getChannelName(), JSON.toJSONString(smsChannelInfo));
 			LOGGER.info("[saveChannel]保存短信渠道 | smsChannelInfo=[{}] | Result=[{}]", JSON.toJSONString(smsChannelInfo), result);
 			return result;
 		}

@@ -21,7 +21,7 @@ public class SmsChannelServiceTest extends SmsScheduleApplicationTests {
 	@Test
 	public void saveChannelTest() {
 		SmsChannelInfoEntity smsChannelInfoEntity = new SmsChannelInfoEntity();
-		smsChannelInfoEntity.setSmsName("ali_sms");
+		smsChannelInfoEntity.setChannelName("ali_sms");
 		smsChannelService.saveChannel(smsChannelInfoEntity);
 	}
 

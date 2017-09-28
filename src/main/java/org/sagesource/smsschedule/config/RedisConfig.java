@@ -4,9 +4,9 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.serializer.JdkSerializationRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 import redis.clients.jedis.JedisPoolConfig;
 
@@ -43,13 +43,15 @@ public class RedisConfig {
 	}
 
 	@Bean
-	public RedisTemplate<String, Object> getRedisTemplate(@Qualifier("connectionFactory") JedisConnectionFactory factory) {
-		RedisTemplate<String, Object> template = new RedisTemplate();
+	@Primary
+	public RedisTemplate<String, String> redisTemplate(@Qualifier("connectionFactory") JedisConnectionFactory factory) {
+		RedisTemplate<String, String> template = new RedisTemplate();
 		template.setConnectionFactory(factory);
 		template.setKeySerializer(new StringRedisSerializer());
-		template.setValueSerializer(new JdkSerializationRedisSerializer());
+		template.setValueSerializer(new StringRedisSerializer());
 		template.setHashKeySerializer(new StringRedisSerializer());
-		template.setHashValueSerializer(new JdkSerializationRedisSerializer());
+		template.setHashValueSerializer(new StringRedisSerializer());
+		template.setEnableTransactionSupport(true);
 
 		return template;
 	}

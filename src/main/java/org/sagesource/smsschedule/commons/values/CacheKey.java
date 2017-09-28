@@ -9,5 +9,6 @@ package org.sagesource.smsschedule.commons.values;
  * </pre>
  */
 public interface CacheKey {
-	String KEY_SMS_CHANNEL_LIST = "sms:channel:list";
+	String SMS_CHANNEL_LIST     = "sms:channel:list";
+	String SMS_CHANNEL_TEMPLATE = "sms:channel:template";
 }

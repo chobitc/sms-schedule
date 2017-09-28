@@ -17,7 +17,7 @@ public class SmsChannelInfoEntity implements Serializable {
 	/**
 	 * 渠道名称
 	 */
-	private String smsName;
+	private String channelName;
 	/**
 	 * 渠道状态 0 - 无效; 1 - 有效(默认)
 	 */
@@ -39,12 +39,12 @@ public class SmsChannelInfoEntity implements Serializable {
 	 */
 	private Date   updateTime;
 
-	public String getSmsName() {
-		return smsName;
+	public String getChannelName() {
+		return channelName;
 	}
 
-	public void setSmsName(String smsName) {
-		this.smsName = smsName;
+	public void setChannelName(String channelName) {
+		this.channelName = channelName;
 	}
 
 	public int getStatus() {
