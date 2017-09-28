@@ -1,0 +1,32 @@
+#===== Server Config =====#
+server:
+  port: 9999
+
+#===== Ali Api Config =====#
+api:
+  alibaba:
+    accessKeyId: ${API_ALIBABA_ACCESSKEY}
+    accessSecret: ${API_ALIBABA_ACCESSSEC}
+    sms:
+      url: http://dysmsapi.aliyuncs.com/?
+
+#===== Redis Config =====#
+redis:
+  host-name: ${ALIYUN_REDIS_HOST}
+  port: ${ALIYUN_REDIS_PORT}
+  password: ${ALIYUN_REDIS_PASSWORD}
+  database: 0
+  timeout: 5000
+  poolConfig:
+    # 连接池最大连接数（使用负值表示没有限制）
+    max-total: 18
+    # 连接池最大阻塞等待时间（使用负值表示没有限制）
+    max-wait: -1
+    # 连接池中的最大空闲连接
+    max-idle: 18
+    # 连接池中的最小空闲连接
+    min-idle: 0
+    # 在空闲时检查有效性
+    test-while-idle: true
+    # 每3秒运行一次空闲连接回收器
+    time-between-eviction-runs-millis: 3000

@@ -8,7 +8,7 @@ import org.sagesource.smsschedule.thirdservice.sms.AliSmsWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit4.SpringRunner;
 import sun.misc.BASE64Encoder;
 
 import java.util.HashMap;
@@ -22,7 +22,7 @@ import java.util.Map;
  *     email       job.xueqi@gmail.com
  * </pre>
  */
-@RunWith(SpringJUnit4ClassRunner.class)
+@RunWith(SpringRunner.class)
 @SpringBootTest(classes = SmsScheduleApplication.class)// 指定spring-boot的启动类
 public class AliSmsWrapperTest {
 
