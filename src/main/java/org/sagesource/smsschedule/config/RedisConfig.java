@@ -50,6 +50,7 @@ public class RedisConfig {
 		template.setValueSerializer(new JdkSerializationRedisSerializer());
 		template.setHashKeySerializer(new StringRedisSerializer());
 		template.setHashValueSerializer(new JdkSerializationRedisSerializer());
+
 		return template;
 	}
 

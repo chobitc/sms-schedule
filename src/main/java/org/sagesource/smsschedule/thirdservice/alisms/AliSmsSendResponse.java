@@ -1,4 +1,4 @@
-package org.sagesource.smsschedule.thirdservice.sms;
+package org.sagesource.smsschedule.thirdservice.alisms;
 
 /**
  * <p>阿里短信服务接口Resp</p>

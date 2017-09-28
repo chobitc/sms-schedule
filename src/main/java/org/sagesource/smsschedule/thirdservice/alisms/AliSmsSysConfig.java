@@ -1,4 +1,4 @@
-package org.sagesource.smsschedule.thirdservice.sms;
+package org.sagesource.smsschedule.thirdservice.alisms;
 
 import com.alibaba.fastjson.annotation.JSONField;
 

@@ -1,4 +1,4 @@
-package org.sagesource.smsschedule.thirdservice.sms;
+package org.sagesource.smsschedule.thirdservice.alisms;
 
 import org.sagesource.smsschedule.commons.ObjectUtils;
 import org.sagesource.smsschedule.commons.SignUtils;

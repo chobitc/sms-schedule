@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSON;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.sagesource.smsschedule.SmsScheduleApplication;
-import org.sagesource.smsschedule.thirdservice.sms.AliSmsWrapper;
+import org.sagesource.smsschedule.thirdservice.alisms.AliSmsWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
