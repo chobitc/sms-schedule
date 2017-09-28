@@ -37,8 +37,6 @@ public class AliSmsWrapperTest {
 	@Test
 	public void sendTest() throws Exception {
 		AliSmsWrapper.SendConfig sendConfig = new AliSmsWrapper.SendConfig();
-		sendConfig.setAccessKeyId(accessKeyId);
-		sendConfig.setAccessSecret(accessSecret);
 		sendConfig.setPhoneNumber("15900264873");
 		sendConfig.setSignName("7妹每日温馨");
 		sendConfig.setTemplateCode("SMS_100270018");

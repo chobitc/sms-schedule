@@ -1,8 +1,8 @@
 package org.sagesource.smsschedule.thirdservice.alisms;
 
-import org.sagesource.smsschedule.commons.ObjectUtils;
-import org.sagesource.smsschedule.commons.SignUtils;
-import org.sagesource.smsschedule.commons.StringUtils;
+import org.sagesource.smsschedule.commons.utils.ObjectUtils;
+import org.sagesource.smsschedule.commons.utils.SignUtils;
+import org.sagesource.smsschedule.commons.utils.StringUtils;
 import org.sagesource.smsschedule.commons.http.RestClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,6 +29,10 @@ public class AliSmsWrapper {
 
 	@Value("${api.alibaba.sms.url}")
 	private String aliSmsUrl;
+	@Value("${api.alibaba.accessKeyId}")
+	private String accessKeyId;
+	@Value("${api.alibaba.accessSecret}")
+	private String accessSecret;
 
 	@Autowired
 	private RestClient restClient;
@@ -42,8 +46,8 @@ public class AliSmsWrapper {
 		try {
 			// 组装request对象
 			AliSmsSendRequest request = new AliSmsSendRequest();
-			request.setAccessKeyId(sendConfig.getAccessKeyId());
-			request.setAccessSecret(sendConfig.getAccessSecret());
+			request.setAccessKeyId(accessKeyId);
+			request.setAccessSecret(accessSecret);
 			request.setPhoneNumbers(sendConfig.getPhoneNumber());
 			request.setSignName(sendConfig.getSignName());
 			request.setTemplateCode(sendConfig.getTemplateCode());
@@ -113,8 +117,6 @@ public class AliSmsWrapper {
 
 	//.............//
 	public static class SendConfig {
-		private String accessKeyId;
-		private String accessSecret;
 		/**
 		 * 手机号
 		 */
@@ -131,22 +133,6 @@ public class AliSmsWrapper {
 		 * 模板编号
 		 */
 		private String templateCode;
-
-		public String getAccessKeyId() {
-			return accessKeyId;
-		}
-
-		public void setAccessKeyId(String accessKeyId) {
-			this.accessKeyId = accessKeyId;
-		}
-
-		public String getAccessSecret() {
-			return accessSecret;
-		}
-
-		public void setAccessSecret(String accessSecret) {
-			this.accessSecret = accessSecret;
-		}
 
 		public String getPhoneNumber() {
 			return phoneNumber;

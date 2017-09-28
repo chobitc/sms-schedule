@@ -17,10 +17,10 @@
 ## 设计思路 ##
 ### 缓存key-value的设计 ###
 系统中现阶段规划了以下几个类型key:
- 1. sms:channel:list 存放短信通道信息
- 2. sms_channel_format: 存放每种类型的短信模板在不同渠道的编号/签名等信息(每个渠道的短信模板占位符的名称最好相同,减少开发量)
+ 1. sms:channel:list        存放短信通道信息
+ 2. sms:channel:template    存放每种类型的短信模板在不同渠道的编号/签名等信息(每个渠道的短信模板占位符的名称最好相同,减少开发量)
  3. sms_channel_receiver: 存放每种类型的短信模板接收者电话列表
-#### sms_channel_list ####
+#### sms:channel:list ####
 ```
     数据格式 : map
     key : 渠道名称(ali_sms)

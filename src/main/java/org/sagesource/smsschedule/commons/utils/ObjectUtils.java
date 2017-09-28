@@ -1,4 +1,4 @@
-package org.sagesource.smsschedule.commons;
+package org.sagesource.smsschedule.commons.utils;
 
 import com.alibaba.fastjson.JSON;
 
