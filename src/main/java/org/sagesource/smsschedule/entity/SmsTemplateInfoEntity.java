@@ -26,6 +26,10 @@ public class SmsTemplateInfoEntity implements Serializable {
 	 */
 	private String templateCode;
 	/**
+	 * 模板签名
+	 */
+	private String templateSign;
+	/**
 	 * 渠道模板参数
 	 */
 	private String templatePara;
@@ -60,5 +64,13 @@ public class SmsTemplateInfoEntity implements Serializable {
 
 	public void setTemplatePara(String templatePara) {
 		this.templatePara = templatePara;
+	}
+
+	public String getTemplateSign() {
+		return templateSign;
+	}
+
+	public void setTemplateSign(String templateSign) {
+		this.templateSign = templateSign;
 	}
 }

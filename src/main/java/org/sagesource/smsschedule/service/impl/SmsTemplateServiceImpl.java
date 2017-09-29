@@ -54,5 +54,6 @@ public class SmsTemplateServiceImpl implements SmsTemplateService {
 			}
 		};
 		redisTemplate.execute(sessionCallback);
+		LOGGER.info("[saveTemplate] | 保存短信模板 | smsTemplateInfo=[{}]", JSON.toJSONString(smsTemplateInfo));
 	}
 }
